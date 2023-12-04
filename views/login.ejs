@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+	<link rel="icon" type="image/x-icon" href="https://i.imgur.com/1IyJgw9.jpg">
+	<style>
+		body {
+			font-family: "Trebuchet MS", Tahoma, sans-serif;
+			background-image: url('https://i.imgur.com/NU9MN8r.jpg');
+		}
+
+		.container {
+			max-width: 250px;
+			margin: auto;
+			padding: 50px;
+			background-color: white;
+			border-radius: 50px;
+			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+		}
+
+		#loginHead {
+			text-align: center;
+			color: #333;
+			margin-bottom: 30px;
+		}
+
+		input[type=text], input[type=password] {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		button {
+			background-color: black;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 40px;
+			cursor: pointer;
+			width: 100%;
+		}
+
+		button:hover {
+			background-color: grey;
+		}
+
+		.cancelbtn {
+			width: auto;
+			padding: 10px 18px;
+			background-color: #f44336;
+		}
+
+		.imgcontainer {
+			text-align: center;
+			margin: 24px 0 12px 0;
+		}
+
+		img.avatar {
+			width: 100%;
+			border-radius: 50%;
+		}
+
+		.container > p {
+			text-align: center;
+		}
+
+		span.psw {
+			float: right;
+			padding-top: 16px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<!--<h3 id="loginHead">LOGIN</h3>-->
+		<div class="imgcontainer">
+			<img src="https://i.imgur.com/1IyJgw9.jpg" alt="Avatar" class="avatar">
+		</div>
+		<form class="" action="/auth" method="post">
+
+
+		<label for="uname"><b>Username</b></label>
+		<input type="text" placeholder="Enter Username" name="uname" required>
+
+		<label for="psw"><b>Password</b></label>
+		<input type="password" placeholder="Enter Password" name="passwd" required>
+
+		<button type="submit">Login</button>
+
+		</form>
+		<p>Don't have an account? <a href="signup">Sign up</a></p>
+	</div>
+</body>
+</html>
