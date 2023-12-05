@@ -158,11 +158,80 @@
                 <strong>Date of Judgement:</strong> <%= new Date(item.date).toLocaleDateString() %><br>
                 <strong>Diary Number:</strong> <%= item.dno %><br>
                 <strong>Year:</strong> <%= item.year %><br><br>
+                <button>Mark as Important</button>
+                <br><br>
             </li>
             <hr>
         <% }); %>
     </ul>
     </div>
+<br><hr><br>
+    <div class="container"> 
+        <div>
+          <img src="https://i.imgur.com/1IyJgw9.jpg" alt="Avatar">
+        </div>
+        <h1><u>Important Cases</u></h1>
+    </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var stack = []; // Stack to keep track of important items
+    
+            // Get the buttons and containers
+            var markAsImportantButtons = document.querySelectorAll(".container button");
+            var secondContainer = document.querySelectorAll(".container")[1];
+    
+            // Function to handle the click event
+            function handleMarkAsImportantClick(event) {
+                // Clone the parent li element of the clicked button
+                var listItem = event.target.closest("li").cloneNode(true);
+    
+                // Remove the button from the cloned list item in the second container
+                var buttonToRemove = listItem.querySelector("button");
+                if (buttonToRemove) {
+                    buttonToRemove.remove();
+                }
+    
+                // Push the cloned li element onto the stack
+                stack.push(listItem);
+    
+                // Update the second container with items from the stack
+                updateSecondContainer();
+            }
+    
+            // Function to update the second container with items from the stack
+            function updateSecondContainer() {
+                // Clear the second container
+                secondContainer.innerHTML = "";
+                var h1Element = document.createElement("h1");
+                h1Element.textContent = "Important Cases";
+                secondContainer.appendChild(h1Element);
+
+                var pElement = document.createElement("p");
+                pElement.textContent = "(Refresh to clear)";
+                secondContainer.appendChild(pElement);
+                
+                secondContainer.appendChild(document.createElement("br"));
+    
+                // Append each item from the stack to the second container
+                stack.forEach(function (item, index) {
+                    // Append the cloned item
+                    secondContainer.appendChild(item.cloneNode(true));
+    
+                    // Append the <hr> tag between items, except for the last one
+                    if (index < stack.length - 1) {
+                        secondContainer.appendChild(document.createElement("hr"));
+                        secondContainer.appendChild(document.createElement("br"));
+                        secondContainer.appendChild(document.createElement("br"));
+                    }
+                });
+            }
+    
+            // Attach click event listeners to all "Mark as Important" buttons
+            markAsImportantButtons.forEach(function (button) {
+                button.addEventListener("click", handleMarkAsImportantClick);
+            });
+        });
+    </script>
     
 </body>
 
